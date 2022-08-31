@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import PostMessage from "../models/postMessage.js";
 
+//QUERY -> /posts?page=1
 export const getPosts = async (req, res) => {
   const { page } = req.query;
   try {
@@ -24,7 +25,7 @@ export const getPosts = async (req, res) => {
   }
 };
 
-//QUERY -> /posts?page=1
+//QUERY -> posts/search?searchQuery=milan&tags=italy,pasta
 export const getPostsBySearch = async (req, res) => {
   const { searchQuery, tags } = req.query;
   try {
@@ -39,6 +40,7 @@ export const getPostsBySearch = async (req, res) => {
   }
 };
 
+// posts/:id
 export const getPost = async (req, res) => {
   const { id } = req.params
   try {
